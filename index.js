@@ -9,6 +9,7 @@ const path = require("path");
 const authRoute = require("./routes/auth");
 const userRoute = require("./routes/user");
 const uploadImageRoute = require("./routes/uploadimage");
+const categoryRoute = require("./routes/category");
 //app allow and json conf
 dotenv.config();
 app.use(cors());
@@ -27,7 +28,7 @@ mongoose
 app.use("/api/auth", authRoute);
 app.use("/api/user", userRoute);
 app.use("/api/uploadImage", uploadImageRoute);
-
+app.use("/api/category", categoryRoute);
 
 
 //get images

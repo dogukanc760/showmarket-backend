@@ -38,6 +38,16 @@ router.get("/find-by-category/:category", async (req, res)=>{
     }
 })
 
+//get business user 
+router.get("/get-business", async (req, res)=>{
+  try {
+      const user = await User.find({isBusinness:{$in:true}})
+      res.status(200).json({data:user, status:200})
+  } catch (error) {
+      res.status(500).json({message:error, status:500})
+  }
+})
+
 //get user by id
 router.get("/find/:id",  async (req, res) => {
     try {
