@@ -37,7 +37,7 @@ router.post("/register-business", async (req, res)=>{
           ).toString(),
         company:req.body.company,
         taxnum:req.body.taxnum,
-        isBusinness:req.body.isBusinness,
+        isBusinness:true,
         sector:req.body.sector,
         category:req.body.category,
         sectorCity:req.body.sectorCity,
