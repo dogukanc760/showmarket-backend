@@ -10,6 +10,8 @@ const authRoute = require("./routes/auth");
 const userRoute = require("./routes/user");
 const uploadImageRoute = require("./routes/uploadimage");
 const categoryRoute = require("./routes/category");
+const sectorRoute = require("./routes/sector");
+const servicesectorRoute = require("./routes/servicesector");
 //app allow and json conf
 dotenv.config();
 app.use(cors());
@@ -29,7 +31,8 @@ app.use("/api/auth", authRoute);
 app.use("/api/user", userRoute);
 app.use("/api/uploadImage", uploadImageRoute);
 app.use("/api/category", categoryRoute);
-
+app.use("/api/sector", sectorRoute);
+app.use("/api/servicesector", servicesectorRoute);
 
 //get images
 app.use("/images", express.static(path.join(__dirname, "routes/images")));
