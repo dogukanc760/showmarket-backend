@@ -15,10 +15,16 @@ const UserSchema = new mongoose.Schema(
        sectorCity:{type:Array},
        sectorDistinct:{type:Array},
        worksDays:{type:Array},
-       worksHours:{type:Array},
+       worksHours:{type:Array}, 
        isAdmin:{type:Boolean, default:false},
        isActive:{type:Boolean, default:true},
        img:{type:String, default:null},
+       adress:{type:Array},
+       comments:{type:Array},
+       rating:{type:Number, default:0},
+       ratingCount:{type:Number, default:0},
+       about:{type:String, default:null},
+       referances:{type:Array},
     },{timestamps: true}
 );
 

@@ -12,6 +12,11 @@ const uploadImageRoute = require("./routes/uploadimage");
 const categoryRoute = require("./routes/category");
 const sectorRoute = require("./routes/sector");
 const servicesectorRoute = require("./routes/servicesector");
+const adressRoute = require("./routes/adress");
+const serviceRoute = require("./routes/service");
+const demandRoute = require("./routes/demand");
+const sliderRoute = require("./routes/slider");
+const questionRoute = require("./routes/question");
 //app allow and json conf
 dotenv.config();
 app.use(cors());
@@ -33,7 +38,11 @@ app.use("/api/uploadImage", uploadImageRoute);
 app.use("/api/category", categoryRoute);
 app.use("/api/sector", sectorRoute);
 app.use("/api/servicesector", servicesectorRoute);
-
+app.use("/api/adressRoute", adressRoute);
+app.use("/api/service", serviceRoute);
+app.use("/api/demand", demandRoute);
+app.use("/api/slider", sliderRoute);
+app.use("/api/question", questionRoute);
 //get images
 app.use("/images", express.static(path.join(__dirname, "routes/images")));
 //run at port
