@@ -31,6 +31,15 @@ mongoose
     console.log(err);
   });
   
+//test url
+app.get("/", (req, res) => {
+  try {
+    res.status(200).json({message:"Api is working! Say hello"});
+  } catch (error) {
+    res.status(500).json({message: error})
+  }
+})
+
 //add routes 
 app.use("/api/auth", authRoute);
 app.use("/api/user", userRoute);
