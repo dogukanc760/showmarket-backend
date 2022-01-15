@@ -27,6 +27,16 @@ router.get("/:servicesector", async (req, res)=>{
     }
 });
 
+// get question by service sector
+router.get("/get-by-category/:id", async (req, res)=>{
+    try {
+        const questions = await Question.find({category: {$regex:req.params.id}});
+        res.status(200).json({ data: questions, status: 200, message:"Success"})
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ message:error})
+    }
+});
 
 // get question by id 
 router.get("/:id", async(req, res)=>{
