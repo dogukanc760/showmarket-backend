@@ -48,6 +48,7 @@ router.post("/", async (req, res) =>{
             question: req.body.question,
             type: req.body.type,
             answer: req.body.answer,
+            category:req.body.category
         });
         const savedQuestion = newQuestion.save();
         res.status(201).json({ data: savedQuestion, status: 201, message: "Success"})
