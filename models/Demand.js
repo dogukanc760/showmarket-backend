@@ -11,7 +11,7 @@ const DemandSchema = new mongoose.Schema({
     answer:{type:Array},
     status:{type:String, required:true},
     isActive:{type:Boolean, default:false},
-    price:{type:String, required:true},
+    price:{type:String},
     offerPrice:{type:String, default:0},
     offerDescription:{type:String, default:null},
 },{timestamps:true})
