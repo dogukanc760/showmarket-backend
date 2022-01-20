@@ -80,11 +80,28 @@ router.get("/get-by-sector", async (req, res) => {
 //get by category
 router.get("/get-by-category", async (req, res) => {
   try {
+    console.log(req.body.category);
     const service = await Service.find({
       category: { $all: [req.body.category] },
     });
     res.status(200).json({ data: service, status: 200, message: "Success" });
   } catch (error) {
+    console.log(error);
+    res.status(500).json({ message: error });
+  }
+});
+
+
+router.get("/get-by-cat/:id", async (req, res) => {
+  try {
+    console.log(req.params.id);
+    const service = await Service.find({
+      category: { $all: [req.params.id] },
+    });
+    
+    res.status(200).json({ data: service, status: 200, message: "Success" });
+  } catch (error) {
+    console.log(error);
     res.status(500).json({ message: error });
   }
 });
