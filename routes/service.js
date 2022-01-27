@@ -49,17 +49,17 @@ router.get("/get-by-company/:companyName", async (req, res) => {
 });
 
 //get service by demand of user
-router.get("/get-by-demand", async (req, res) => {
+router.get("/get-by-demand/:sector/:category/:city/:distinct", async (req, res) => {
   try {
     const service = await Service.find({
-      sector: { $all: [req.body.sector] },
-      category: { $all: [req.body.category] },
-      city: { $all: [req.body.city] },
-      distinct: { $all: [req.body.distinct] },
+      sector: { $in: req.params.sector },
+      category: { $in: req.params.category },
+       city:{$in:req.params.city},
       
     });
     res.status(200).json({ data: service, status: 200, message: "Success" });
   } catch (error) {
+    console.log(error);
     res.status(500).json({ message: error });
   }
 });
@@ -140,7 +140,10 @@ router.post("/", async (req, res) => {
       isActive: req.body.isActive,
       showHome: req.body.showHome,
       descImg:req.body.descImg,
-      descVideos: req.body.descVideos
+      descVideos: req.body.descVideos,
+      price:req.body.price,
+      priceTwo: req.body.priceTwo,
+      personCount: req.body.personCount,
     });
 
     const savedService = newService.save();
