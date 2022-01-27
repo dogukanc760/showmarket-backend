@@ -56,8 +56,7 @@ router.get("/get-by-demand", async (req, res) => {
       category: { $all: [req.body.category] },
       city: { $all: [req.body.city] },
       distinct: { $all: [req.body.distinct] },
-      questions: { $all: [req.body.questions] },
-      answer: { $all: [req.body.answer] },
+      
     });
     res.status(200).json({ data: service, status: 200, message: "Success" });
   } catch (error) {
@@ -140,6 +139,8 @@ router.post("/", async (req, res) => {
       about: req.body.about,
       isActive: req.body.isActive,
       showHome: req.body.showHome,
+      descImg:req.body.descImg,
+      descVideos: req.body.descVideos
     });
 
     const savedService = newService.save();
