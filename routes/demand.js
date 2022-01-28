@@ -137,7 +137,7 @@ router.post("/", async (req, res)=>{
             question:[req.body.question],
             answer: [req.body.answer],
             status: req.body.status,
-            isActive: req.body.isActive,
+            isActive: true,
             price: "",
             offerPrice:0,
             offerDescription:0
