@@ -24,7 +24,8 @@ const ServiceSchema = new mongoose.Schema(
        comments:{type:Array},
        about:{type:String, required:true},
        isActive:{type:Boolean, default:true},
-       showHome:{type:Boolean, default:true}
+       showHome:{type:Boolean, default:true},
+       status:{type:Boolean, default:false},
     },{timestamps:true});
 
 module.exports = mongoose.model("Service", ServiceSchema);

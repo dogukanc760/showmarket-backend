@@ -128,7 +128,7 @@ router.get("/get-by-company/:id", async (req, res)=>{
 router.post("/", async (req, res)=>{
     try {
         const newDemand = new Demand({
-            company:[req.body.company],
+            company:req.body.company,
             user: req.body.user,
             service: [req.body.service],
             location: [req.body.location],
