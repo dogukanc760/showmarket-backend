@@ -90,6 +90,19 @@ router.get("/get-by-category", async (req, res) => {
   }
 });
 
+router.get("/get-by-name/:name", async (req, res) => {
+  try {
+    console.log(req.params.name);
+    const service = await Service.find({
+      name: { $regex: req.params.name },
+    });
+    res.status(200).json({ data: service, status: 200, message: "Success" });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ message: error });
+  }
+});
+
 
 router.get("/get-by-cat/:id", async (req, res) => {
   try {
