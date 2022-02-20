@@ -17,13 +17,11 @@ router.post("/register", async (req, res) => {
   try {
     const savedUser = await newUser.save();
     console.log(savedUser);
-    res
-      .status(201)
-      .json({
-        success: true,
-        data: savedUser,
-        message: "Register Successfully",
-      });
+    res.status(201).json({
+      success: true,
+      data: savedUser,
+      message: "Register Successfully",
+    });
   } catch (error) {
     res.status(500).json({ success: false, message: error });
   }
@@ -52,13 +50,11 @@ router.post("/register-business", async (req, res) => {
   try {
     const savedUser = await newUser.save();
     console.log(savedUser);
-    res
-      .status(201)
-      .json({
-        success: true,
-        data: savedUser,
-        message: "Register Successfully",
-      });
+    res.status(201).json({
+      success: true,
+      data: savedUser,
+      message: "Register Successfully",
+    });
   } catch (error) {
     res.status(500).json({ success: false, message: error });
   }
@@ -79,7 +75,11 @@ router.post("/login", async (req, res) => {
     }
     console.log(user);
     console.log(req.body.mail);
-    !user && res.status(401).json("Wrong Mail Or Gsm");
+    // if (!user) {
+    //   res.status(401).json("Wrong Mail Or Gsm");
+
+    // }
+//    !user && res.status(401).json("Wrong Mail Or Gsm");
 
     const hashedPassword = CryptoJS.AES.decrypt(
       user.password,
@@ -105,13 +105,11 @@ router.post("/login", async (req, res) => {
 
       const { password, ...others } = user._doc;
 
-      res
-        .status(200)
-        .json({
-          data: { ...others, accessToken },
-          success: true,
-          message: "Login Successfully",
-        });
+      res.status(200).json({
+        data: { ...others, accessToken },
+        success: true,
+        message: "Login Successfully",
+      });
     }
   } catch (error) {
     res.status(500).json({ success: false, message: error });
