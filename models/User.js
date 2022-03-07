@@ -23,6 +23,7 @@ const UserSchema = new mongoose.Schema(
        comments:{type:Array},
        rating:{type:Number, default:0},
        ratingCount:{type:Number, default:0},
+       taxPlate:{type:String, default:''},
        about:{type:String, default:null},
        referances:{type:Array},
     },{timestamps: true}
