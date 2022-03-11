@@ -160,6 +160,7 @@ router.post("/", async (req, res) => {
     });
 
     const savedService = newService.save();
+    console.log(newService);
     res
       .status(201)
       .json({ data: newService, status: 201, message: "Success" });
